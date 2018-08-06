@@ -1,6 +1,6 @@
 # electron-vue-file-browse
 
-> Electron/Vue.js file browser
+> Electron/Vue.js file browser demo application
 
 #### Build Setup
 
@@ -17,7 +17,8 @@ npm run build
 
 ```
 
----
 
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[4c6ee7b](https://github.com/SimulatedGREG/electron-vue/tree/4c6ee7bf4f9b4aa647a22ec1c1ca29c2e59c3645) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
-# vue-file-tree-demo
+For a blog post describing what is here, see: https://techsparx.com//nodejs/electron/file-browser-component.html
+
+This demo application shows usage of:  https://github.com/robogeek/vue-file-tree
+
