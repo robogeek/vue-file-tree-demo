@@ -7,7 +7,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'landing-page',
+      name: 'file-browser-page',
       component: require('@/components/FileBrowserMain').default
     },
     {

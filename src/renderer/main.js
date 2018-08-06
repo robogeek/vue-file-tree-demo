@@ -9,8 +9,8 @@ import 'buefy/lib/buefy.css';
 
 Vue.use(Buefy);
 
-import FileBrowserTree from 'vue-file-tree'; // './FileBrowserTree.vue';
-Vue.component('file-browser-tree', FileBrowserTree);
+// import FileBrowserTree from 'vue-file-tree'; // './FileBrowserTree.vue';
+// Vue.component('file-browser-tree', FileBrowserTree);
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.config.productionTip = false

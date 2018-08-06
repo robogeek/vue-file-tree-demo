@@ -6,7 +6,14 @@
           class="column"
           @nodeClick="nodeClick"
           @nodeDoubleClick="nodeDoubleClick"
-          @nodeDrop="nodeDrop"></file-browser-tree>
+          @nodeDrop="nodeDrop">
+
+    <template slot="context-menu">
+        <div @click="doDashboard">Dashboard</div>
+        <div @click="doCustomers">Customers</div>
+    </template>
+
+    </file-browser-tree>
 
     <div id="file-info-view" class="column">
         <span v-html="fileInfo"></span>
@@ -17,10 +24,17 @@
 
 <script>
 
+// import Vue from 'vue'
+
 const path = require('path');
 const util = require('util');
 import { messageBus } from '../main.js';
 import { ipcRenderer } from 'electron';
+
+// import FileBrowserTree from './FileBrowserTree.vue';
+
+import FileBrowserTree from 'vue-file-tree'; // './FileBrowserTree.vue';
+// Vue.component('file-browser-tree', FileBrowserTree);
 
 /* var nodes = [
     {title: 'Item1', isLeaf: true},
@@ -35,9 +49,9 @@ import { ipcRenderer } from 'electron';
 ]; */
 
 export default {
-  name: 'landing-page',
+  name: 'file-browser-main',
   components: {
-    // fileBrowserTree: FileBrowserTree
+    'file-browser-tree': FileBrowserTree,
   },
   data() {
     return {
@@ -46,7 +60,8 @@ export default {
     }
   },
   methods: {
-    nodeClick(node) {
+    nodeClick(event, node) {
+      console.log(`nodeClick ${util.inspect(node)}`)
       this.fileInfo = `
         <table>
         <tr><th>ACTION</th><th>CLICK</th></tr>
@@ -84,6 +99,14 @@ export default {
         <tr><th>Mode</th><td>${node[0].data.stat.mode}</td></tr>
         </table>
         `;
+    },
+    doCustomers() {
+        console.log(`doCustomers`);
+        this.$refs.filetree.contextMenuIsVisible = false;
+    },
+    doDashboard() {
+        console.log(`doDashboard`);
+        this.$refs.filetree.contextMenuIsVisible = false;
     },
     rescan() {
       this.nodes = [];
